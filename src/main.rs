@@ -43,7 +43,16 @@ fn main() {
         reports.insert(pkg.id.clone(), report);
     }
 
-    // TODO: print N largest dependencies
+    // print N largest dependencies
+    {
+        // satisfy the borrow checker
+        let n = 20;
+        println!("Top {n} largest depdendencies:");
+        for (pkg, stats) in top_n(&reports, n) {
+            println!("{} lines: {pkg}", stats.total().lines());
+        }
+        println!(); // blank line for padding
+    }
 
     let mut combined_report = Languages::new();
     for (_pkg, report) in reports {
@@ -51,6 +60,7 @@ fn main() {
     }
 
     // TODO: fancy pretty-printing like in tokei itself
+    println!("Breakdown of the total lines by language:");
     for (lang, stats) in &combined_report {
         println!("{lang}, {}", stats.lines());
     }
@@ -80,4 +90,16 @@ fn merge_reports(destination: &mut Languages, source: Languages) {
         dest += source_stats;
         destination.insert(lang, dest);
     }
+}
+
+fn top_n(reports: &BTreeMap<PackageId, Languages>, n: usize) -> Vec<(&PackageId, &Languages)> {
+    let mut result: Vec<(&PackageId, &Languages)> = reports.iter().collect();
+    result.sort_by_key(|(_pkg, stats)| stats.total().lines());
+    // sorting puts smaller elements first, so the ones we need are at the end
+    if result.len() > n {
+        result.drain(..result.len() - n);
+    }
+    // reverse the remaining elements to put the largest one in front
+    result.reverse();
+    result
 }
