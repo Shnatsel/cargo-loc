@@ -49,7 +49,8 @@ fn main() {
         let n = 20;
         println!("Top {n} largest depdendencies:");
         for (pkg, stats) in top_n(&reports, n) {
-            println!("{} lines: {pkg}", stats.total().lines());
+            let total = stats.total();
+            println!("{} lines ({} code): {pkg}", total.lines(), total.code);
         }
         println!(); // blank line for padding
     }
