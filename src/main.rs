@@ -39,7 +39,7 @@ fn main() {
         let dir = pkg.manifest_path.as_std_path().parent().unwrap();
 
         // TODO: parallelize this even more? This is embarrassingly parallel. But is it worth the complexity?
-        let report = count_loc(dir);
+        let report = count_crate_loc(dir);
         reports.insert(pkg.id.clone(), report);
     }
 
@@ -67,7 +67,7 @@ fn main() {
     }
 }
 
-fn count_loc(dir: &Path) -> tokei::Languages {
+fn count_crate_loc(dir: &Path) -> tokei::Languages {
     let included = &[dir];
 
     // The `tests` dir is not excluded because we cannot exclude same-file unit tests.
