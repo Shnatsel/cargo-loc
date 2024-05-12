@@ -46,8 +46,8 @@ fn main() {
     // TODO: print N largest dependencies
 
     let mut combined_report = Languages::new();
-    for (_pkg, mut report) in reports {
-        combined_report.append(&mut report);
+    for (_pkg, report) in reports {
+        merge_reports(&mut combined_report, report)
     }
 
     // TODO: fancy pretty-printing like in tokei itself
@@ -70,4 +70,14 @@ fn count_loc(dir: &Path) -> tokei::Languages {
     let mut languages = tokei::Languages::new();
     languages.get_statistics(included, excluded, &config);
     languages
+}
+
+fn merge_reports(destination: &mut Languages, source: Languages) {
+    for (lang, source_stats) in source {
+        // += seems to be implemented only for `Language`, not `&mut Language`
+        // so we work around that with `mem::take`
+        let mut dest = std::mem::take(destination.entry(lang).or_default());
+        dest += source_stats;
+        destination.insert(lang, dest);
+    }
 }
