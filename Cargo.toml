@@ -1,0 +1,7 @@
+[package]
+name = "cargo-loc"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+tokei = "12.1.2"
