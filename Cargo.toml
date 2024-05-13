@@ -2,6 +2,11 @@
 name = "cargo-loc"
 version = "0.1.0"
 edition = "2021"
+authors = ["Sergey \"Shnatsel\" Davidoff <shnatsel@gmail.com>"]
+description = "Count lines of code across your entire dependency tree"
+repository = "https://github.com/Shnatsel/cargo-loc"
+license = "MIT OR Apache-2.0"
+categories = ["command-line-utilities", "development-tools::cargo-plugins"]
 
 [dependencies]
 cargo_metadata = "0.18.1"
