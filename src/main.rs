@@ -48,9 +48,16 @@ fn main() {
         // satisfy the borrow checker
         let n = 20;
         println!("Top {n} largest depdendencies:");
-        for (pkg, stats) in top_n(&reports, n) {
+        for (pkg_id, stats) in top_n(&reports, n) {
+            let pkg = metadata.packages.iter().find(|p| p.id == *pkg_id).unwrap();
             let total = stats.total();
-            println!("{} lines ({} code): {pkg}", total.lines(), total.code);
+            println!(
+                "{} lines ({} code): {} v{}",
+                total.lines(),
+                total.code,
+                pkg.name,
+                pkg.version
+            );
         }
         println!(); // blank line for padding
     }
