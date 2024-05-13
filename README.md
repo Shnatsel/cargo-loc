@@ -12,10 +12,11 @@
 
  ## What doesn't work (yet?)
 
-  - Analyzing an entire Cargo workspace as opposed to a single crate (and its dependencies)
-  - Fancy table output like in `tokei`
-  - Configuration of any kind
-  - Understanding which parts of a huge crate like `libc` you're actually using and counting accordingly (see [painter](https://github.com/rustfoundation/painter))
+ - Excluding dev-dependencies and build-dependencies
+ - Analyzing an entire Cargo workspace as opposed to a single crate (and its dependencies)
+ - Fancy table output like in `tokei`
+ - Configuration of any kind
+ - Understanding which parts of a huge crate like `libc` you're actually using and counting accordingly (see [painter](https://github.com/rustfoundation/painter))
 
 ## Sample output
 
