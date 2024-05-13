@@ -27,7 +27,7 @@ Counts the lines of code across your entire dependency tree in a Cargo project. 
 Here's `cargo loc` running on itself:
 
 ```
-Top 20 largest depdendencies:
+Top 20 largest dependencies:
 504205 lines (133025 code): encoding_rs v0.8.34
 384808 lines (384747 code): windows-sys v0.52.0
 180430 lines (177051 code): winapi v0.3.9

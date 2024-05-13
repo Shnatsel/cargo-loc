@@ -47,7 +47,7 @@ fn main() {
     {
         // satisfy the borrow checker
         let n = 20;
-        println!("Top {n} largest depdendencies:");
+        println!("Top {n} largest dependencies:");
         for (pkg_id, stats) in top_n(&reports, n) {
             let pkg = metadata.packages.iter().find(|p| p.id == *pkg_id).unwrap();
             let total = stats.total();
