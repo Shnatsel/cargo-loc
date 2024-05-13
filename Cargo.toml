@@ -1,6 +1,6 @@
 [package]
 name = "cargo-loc"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["Sergey \"Shnatsel\" Davidoff <shnatsel@gmail.com>"]
 description = "Count lines of code across your entire dependency tree"
