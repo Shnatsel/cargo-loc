@@ -45,29 +45,29 @@ Top 20 largest depdendencies:
 12701 lines (10742 code): serde v1.0.201
 
 Breakdown of the total lines by language:
-BASH, 183
-C, 8803
-C Header, 1153
-C++, 67
-Dockerfile, 9
-F*, 830
-HTML, 4028
-JavaScript, 2790
-JSON, 1432
-Makefile, 1361
-Markdown, 35081
-Pan, 3
-Pest, 735
-Python, 2759
-ReStructuredText, 179
-Rust, 1436510
-Shell, 186
-Plain Text, 369964
-TOML, 19082
-YAML, 238
+Rust: 1436510
+Plain Text: 369964
+Markdown: 35129
+TOML: 19082
+C: 8803
+HTML: 4028
+JavaScript: 2790
+Python: 2759
+JSON: 1432
+Makefile: 1361
+C Header: 1153
+F*: 830
+Pest: 735
+YAML: 238
+Shell: 186
+BASH: 183
+ReStructuredText: 179
+C++: 67
+Dockerfile: 9
+Pan: 3
 
-Total lines: 1885393
-(1355598 code, 444655 comments, 85140 blank lines)
+Total lines: 1885441
+(1355598 code, 444701 comments, 85142 blank lines)
 ```
 
 Spooky!
