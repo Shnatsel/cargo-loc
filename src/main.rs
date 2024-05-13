@@ -65,6 +65,14 @@ fn main() {
     for (lang, stats) in &combined_report {
         println!("{lang}, {}", stats.lines());
     }
+    println!(); // blank line for padding
+
+    let total = combined_report.total();
+    println!("Total lines: {}", total.lines());
+    println!(
+        "({} code, {} comments, {} blank lines)",
+        total.code, total.comments, total.blanks
+    );
 }
 
 fn count_crate_loc(dir: &Path) -> tokei::Languages {
