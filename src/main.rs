@@ -69,10 +69,15 @@ fn main() {
 
     // TODO: fancy pretty-printing like in tokei itself
     println!("Breakdown of the total lines by language:");
-    for (lang, stats) in &combined_report {
-        println!("{lang}, {}", stats.lines());
+    {
+        let mut sorted_langs: Vec<_> = combined_report.iter().collect();
+        sorted_langs.sort_by_key(|(_lang, stats)| stats.lines());
+        sorted_langs.reverse(); // because the sorting put smaller keys first
+        for (lang, stats) in &sorted_langs {
+            println!("{lang}: {}", stats.lines());
+        }
+        println!(); // blank line for padding
     }
-    println!(); // blank line for padding
 
     let total = combined_report.total();
     println!("Total lines: {}", total.lines());
