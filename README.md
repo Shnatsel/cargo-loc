@@ -1,8 +1,12 @@
 # `cargo loc`
 
- Counts the lines of code across your entire dependency tree in a Cargo project. Powered by [`tokei`](https://github.com/XAMPPRocky/tokei).
+Counts the lines of code across your entire dependency tree in a Cargo project. Powered by [`tokei`](https://github.com/XAMPPRocky/tokei).
 
- ## What works
+## Installation
+
+`cargo install cargo-loc`
+
+## What works
 
  - Feature selection with `--no-default-features`, `--all-features`, `--features=...`
  - Restricting the analysis to specific platform, e.g. `--filter-platform=x86_64-unknown-linux-gnu`
@@ -10,7 +14,7 @@
  - Recognizes lots of languages, presents a breakdown by language
  - Telling code apart from comments and blank lines, in all those languages
 
- ## What doesn't work (yet?)
+## What doesn't work (yet?)
 
  - Excluding dev-dependencies and build-dependencies
  - Analyzing an entire Cargo workspace as opposed to a single crate (and its dependencies)
