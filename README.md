@@ -1,6 +1,6 @@
 # `cargo loc`
 
- Counts the lines of code across your entire dependency tree, in a Cargo project. Powered by [`tokei`](https://github.com/XAMPPRocky/tokei).
+ Counts the lines of code across your entire dependency tree in a Cargo project. Powered by [`tokei`](https://github.com/XAMPPRocky/tokei).
 
  ## What works
 
